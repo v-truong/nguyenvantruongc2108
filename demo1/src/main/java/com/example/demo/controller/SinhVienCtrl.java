@@ -2,12 +2,14 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.SinhVien;
 import com.example.demo.repository.SinhVienRepo;
+import jakarta.persistence.NoResultException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 //@RequestMapping("/sinhvien")
@@ -23,7 +25,7 @@ public class SinhVienCtrl {
     }
 
     @PostMapping("form")
-    public void CreateSinhVien  (
+    public String CreateSinhVien  (
                                     @RequestParam("description") String Description,
                                     @RequestParam("name") String name,
                                     Model model){
@@ -33,10 +35,17 @@ public class SinhVienCtrl {
         sinhVien.setName(name);
         // Lưu sinhVien vào cơ sở dữ liệu
         sinhVienRepo.save(sinhVien);
+        return "redirect:/test";
     }
     @GetMapping("/form")
     public String hienthi(){
         return "form";
+    }
+    @GetMapping("/delete")
+    public  String delete(@PathVariable("id")Integer id, Model model){
+      SinhVien sinhvien = sinhVienRepo.findById(id).orElseThrow(NoResultException::new);
+      sinhVienRepo.delete(sinhvien);
+        return "redirect:/test";
     }
 
 }

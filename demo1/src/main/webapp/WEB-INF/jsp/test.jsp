@@ -14,6 +14,8 @@
         <th>ID</th>
         <th>name</th>
         <th>des</th>
+        <th>xóa</th>
+
     </tr>
     </thead>
     <tbody>
@@ -22,6 +24,7 @@
             <td>${s.id}</td>
             <td>${s.name}</td>
             <td>${s.description}</td>
+            <td><a href="/delete/${s.id}">Delete</a></td>
         </tr>
     </c:forEach>
     </tbody>

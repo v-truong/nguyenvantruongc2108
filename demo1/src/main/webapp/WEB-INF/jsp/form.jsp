@@ -11,7 +11,7 @@
     <label for="description">des:</label>
     <input type="text" id="description" name="description" required><br><br>
 
-    <input type="submit" value="Lưu" href="test.jsp">
+    <input type="submit" value="them" href="test.jsp">
 </form>
 </body>
 </html>

@@ -18,7 +18,7 @@
     <tbody>
     <c:forEach var="sinhVien" items="${getsv}">
         <tr>
-            <td>${sinhVien.svid}</td>
+                <td>${sinhVien.svid}</td>
             <td>${sinhVien.svname}</td>
             <td>${sinhVien.svphone}</td>
             <td>${sinhVien.svpass}</td>
